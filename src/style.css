@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    height: 100vh;
+}
+
+header {
+    display:flex;
+    justify-content:space-between;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: #f0ece2;
+}
+
+ul {
+    display:flex;
+    align-items:center;
+    list-style-type: none;
+    gap: 20px;
+}
+
+li {
+
+}
+nav {
+    display:flex;
+    justify-content:flex-end;
+    background-color: rgba(255, 255, 255, 0.2)
+}

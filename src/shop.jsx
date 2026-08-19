@@ -16,12 +16,6 @@ const Shop = () => {
 
   const [quantities, setQuantities] = useState({});
 
-  const changeQty = (id, change, added) => {
-    setQuantities(prev => ({
-        ...prev,
-        [id]: added ? Math.max(0, (prev[id] || 0) + change) : 0,
-    }));
-  };
 
   const {cart, setCart} = useOutletContext();
 
@@ -41,6 +35,13 @@ const Shop = () => {
   console.log("not adding anything to cart")};
   console.log(cart);
  };
+
+   const changeQty = (id, change, added) => {
+    setQuantities(prev => ({
+        ...prev,
+        [id]: added ? Math.max(0, (prev[id] || 0) + change) : 0,
+    }));
+  };
 
   return (
     <div className="productwrapper">

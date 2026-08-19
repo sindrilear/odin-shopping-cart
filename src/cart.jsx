@@ -17,10 +17,18 @@ const CartPage = () => {
         }
         return total;
     }
-
+    
     let total = itemSubtotal(items);
 
-    console.log(items)
+    const updateQty = (id, change) => {
+        setCart(prevCart => ({
+            ...prevCart,
+            [id]: {
+                ...prevCart[id],
+                quantity: Math.max(1, (prevCart[id]?.quantity ?? 0) + change),
+            },
+        }));
+    }
 
     return (
     <div className="shoppingcartpage">
@@ -35,7 +43,14 @@ const CartPage = () => {
                     </div>
                     <div>
                         <h3>{item.title}</h3>
-                        <p>Quantity: {item.quantity}</p>
+                        <div className="quantitywrapper">
+                            <p>Quantity:</p>
+                            <button className="quantitybutton"
+                            onClick={() => updateQty(item.id, -1)}>-</button>
+                            {item.quantity}
+                            <button className="quantitybutton"
+                            onClick={() => updateQty(item.id, 1)}>+</button>
+                        </div>
                         <p>Price: ${item.price}</p>
                     </div>
                 </div>

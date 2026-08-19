@@ -5,7 +5,7 @@ import Header from "./header";
 export default function Layout() {
 
   const [cart, setCart] = useState([]);
-
+  
   return (
     <>
       <Header />

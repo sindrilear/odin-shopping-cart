@@ -27,17 +27,19 @@ const Shop = () => {
 
  function addToCart(product, quantity) {
   changeQty (product.id, 0, false);
-
-  setCart(prevCart => ({
+  {quantity > 0 ?
+    setCart(prevCart => ({
     ...prevCart,
     [product.id]: {
       id: product.id,
       title:product.title,
+      img:product.image,
       price:product.price,
       quantity: (prevCart[product.id]?.quantity || 0) + quantity,
     },
-  }));
-  console.log(cart)
+  })) :
+  console.log("not adding anything to cart")};
+  console.log(cart);
  };
 
   return (

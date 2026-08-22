@@ -8,7 +8,7 @@ export default function Layout() {
   
   return (
     <>
-      <Header />
+      <Header cart={cart}/>
       <main>
         <Outlet context={{ cart, setCart }} />
       </main>

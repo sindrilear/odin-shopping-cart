@@ -16,7 +16,6 @@ const Shop = () => {
 
   const [quantities, setQuantities] = useState({});
 
-
   const {cart, setCart} = useOutletContext();
 
  function addToCart(product, quantity) {
@@ -36,10 +35,11 @@ const Shop = () => {
   console.log(cart);
  };
 
-   const changeQty = (id, change, added) => {
+   const changeQty = (id, change, added, input) => {
+  
     setQuantities(prev => ({
         ...prev,
-        [id]: added ? Math.max(0, (prev[id] || 0) + change) : 0,
+        [id]: input ? Math.max(0, change) : added ? Math.max(0, (prev[id] || 0) + change) : 0,
     }));
   };
 
@@ -60,14 +60,17 @@ const Shop = () => {
                   <div className="quantitywrapper">
                     <button
                       className="quantitybutton"
-                      onClick={() => changeQty(product.id, -1, true)}
+                      onClick={() => changeQty(product.id, -1, true, false)}
                     >
                       -
                     </button>
-                    <p>{quantities[product.id] || 0}</p>
+                    <label>
+                      <input name="quantityinput" type="number" value={`${quantities[product.id] ?? 0}`} onChange={(e) => 
+                        changeQty(product.id, parseInt(e.target.value), true, true)}></input>
+                    </label>
                     <button
                       className="quantitybutton"
-                      onClick={() => changeQty(product.id, 1, true)}
+                      onClick={() => changeQty(product.id, 1, true, false)}
                     >
                       +
                     </button>

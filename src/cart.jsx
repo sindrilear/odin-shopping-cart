@@ -20,6 +20,7 @@ const CartPage = () => {
     
     let total = itemSubtotal(items);
 
+
     const updateQty = (id, change) => {
         setCart(prevCart => ({
             ...prevCart,
@@ -28,6 +29,13 @@ const CartPage = () => {
                 quantity: Math.max(1, (prevCart[id]?.quantity ?? 0) + change),
             },
         }));
+    }
+
+    function clearCart(id) {
+        setCart(prevCart => {
+            const { [id]: clearedItem, ...newCart } = prevCart;
+            return newCart;
+        })
     }
 
     return (
@@ -50,6 +58,7 @@ const CartPage = () => {
                             {item.quantity}
                             <button className="quantitybutton"
                             onClick={() => updateQty(item.id, 1)}>+</button>
+                            <button className="deleteButton" onClick={() => clearCart(item.id)}>🗑️</button>
                         </div>
                         <p>Price: ${item.price}</p>
                     </div>

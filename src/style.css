@@ -1,3 +1,9 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 body {
     margin: 0;
     height: 100vh;
@@ -147,4 +153,28 @@ label {
     width:35%;
     margin:0;
     padding:0;
+}
+
+.entershoplink {
+    display:inline-block;
+    padding: 15px 32px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #008CBA;
+    font-size: 16px;
+    border: none;
+    color:white;
+}
+
+.entershoplink a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.mainpagewrapper {
+    display:flex;
+    flex-direction:column;
+    margin: 20px;
+    align-items:center;
+    gap:20px;
 }

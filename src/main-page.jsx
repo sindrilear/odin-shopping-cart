@@ -6,7 +6,11 @@ function MainPage() {
     return (
         <>
         <div>
-            <h2>Welcome!</h2>
+            <div className="mainpagewrapper">
+                <h1>Welcome to Electronix</h1>
+                <h3>We only sell the highest quality HDDs, SDDs and monitors!</h3>
+                <li className="entershoplink"><Link to="/shop">Enter Shop</Link></li>
+            </div>
         </div>
         </>
     )
